@@ -34,3 +34,17 @@ t2= treading.Thread(target=halve)
 
 t1.start()
 t2.start()
+
+semaphore = threading.BoundedSemaphore(Value=5)
+def access(thread_number):
+    print(f'{thread_number} is trying to access the data')
+    semaphore.acquire()
+    print(f'{thread_number} was granted access!')
+    time.sleep(5)
+    print(f'{thread_number} is now releasing!')
+    semaphore.release()
+for thread_number in range(9):
+    t=treading.Thread(target=access,args=(thread,))
+    t.start()
+    time.sleep(1)
+    
