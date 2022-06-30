@@ -22,7 +22,9 @@ class Person:
         self.first=results[1]
         self.last=results[2]
         self.age=results[3]
-    def insert_person
+    def insert_person(self):
+        self.cursor.execute('INSERT INTO PERSONS VALUES({},"{}","{}",{})'.format(self.id_number,self.first,self.last,self.age))
+        self.connection.commit()
 
 
 #the method exxecute is where we will place our queries
