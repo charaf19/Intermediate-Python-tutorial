@@ -1,9 +1,9 @@
 import threading 
 event = threading.Event()
 def myfunction():
-    print("waiting for event to trgger")
+    print("waiting for event to trgger\n")
     event.wait()
-    print('performing the action xyz now')
+    print('performing the action xyz now\n')
 
 t1 = treading.Thread(target=myfunction)
 t1.start()
